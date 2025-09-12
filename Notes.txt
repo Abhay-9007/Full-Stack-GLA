@@ -1,0 +1,207 @@
+# 1 aug 2025
+
+
+Ques1 : diff. in attribute and property
+
+Attribute :-
+    act as a bridge in html and css file
+    attributes are always in string 
+    attributes are defined in .html file
+    this is default initial value of webpage
+
+Properties:-
+    this are in js and css
+    cna be in all datatypes
+    recent or updates value of webpage
+
+
+
+1. In-Line label
+2. Block label 
+3. in other file .css
+
+
+# 4 aug 2025
+
+types of tags:-
+    1. manual 
+    2. self closing
+
+
+inline : subscript superscript { To alter content.}
+block : paragraph heading division section  {to give space}
+
+Heading Tags:- this have bold prop 
+    h1    {biggest}
+    h2
+    h3
+    h4
+    h5
+    h6    {Smallest}
+
+<p> paragraph
+<pre> include user spaces
+<hr> to draw horizontal Line
+<a> ancore tag to make any texxt clickable 
+
+Division Tags .div
+this is use to make partition on the page.
+
+# 6 aug 2025
+
+
+question :- diff. b\w section and list.
+
+Section ;- 
+
+List :- 
+    1. Ordered
+    2. Unordered
+    3. Defination
+
+Unordered List = <ul></ul>
+    it contains list items <li></li>
+    it contain unordered item represented by buttet points. {default = disk}
+    using type attribute we can change the type of disks
+
+
+Float :=
+
+This is use to align the divs across the web page.
+as : "float : right;"
+
+
+Homework = Table Tag.
+
+    <table> : Wraps the entire table
+    <tr>	: Table row (Table Row)
+    <td>	: Table cell for data (Table Data)
+    <th>	: Table header cell (bold + centered by default)
+    <caption>	Optional table title
+
+    In this the content must be in the <td> tag else it will be shown before the table.
+    n0. of row = height of table.{it gets auto devided equally}
+    no. of column = width of table.
+    width and height can't be bigger than the content inside the table
+
+Diff. b\w section and div  =   section was introduced in html5 and used to have same type of data ex = heading & paragraph.
+Diff. b\w table and div    =   table is user friendly and easy to implement. 
+
+
+# Selectors {these have the least precedence in the bodmas}
+1. Simple Seclectors
+2. Combinator Selectors
+3. Adjecent Selectors
+4. Decendents Seclectors
+5. Psudo Selectors
+
+1. Simple Selectors
+    Class : used to give prop. to the group of tags. { class = "colo colo2" : here both will work }
+    Id : used on single tag and must be uniques. {can be assigned to multiple tags but this is not how it works and used.}
+
+# Selectors                 11th August 2025 {Absent}
+
+
+# Positioning of layout     13th August 2025
+
+1. Relative.   this will drop pixels. {default}
+2. Static      this will remain static 
+3. Absolute.   follows prop of nearby
+
+Note -> Amazon is not Responsive they have made a lots of layouts for different devices.
+
+
+
+#                      20 August 2025
+
+EXAM :
+    MCQ = 20 Marks {1 marks each.}
+    Taks = 10 Marks {html + css + js.}
+    Lab Manual = code must be available on GitHub. {Learn both pattern GUI + Command Line}
+    Same Goes for DAA...
+
+#                     25 August 2025
+
+Display Property
+1. Inline = in one line..
+2. block = will contain it's own block
+3. flex = we can align out container accordingly
+    1. Align-Item = 
+    2. justify-content =
+    3. flex-direction =
+4. None = container will dissappear.
+
+Use Case : when we work in responsive screen.
+
+Topics Remaining in CSS
+1. Animations
+2. Responsive Behaviour
+
+Topics in HTML
+1. Forms
+
+#                     26 August 2025
+
+Units = to measure
+1. Absolute : these are fixed. ex = {px = 1/96 inch, pt = 1/72 inch}
+2. Relative : will change accordingly. ex = {vh, vw, %, rem, em}
+ v = works on the basis of View Point
+ % =  works on the basis of parent
+ rem = root Element {1 rem = 16 px}
+ em = parent Element
+ rem and em are used to stop overflow.
+
+ Flex-Box: Flexible Box
+ 
+
+#                   2nd September 2025
+Grid : It is the Combination of Rows and Columns.
+How To Create:
+    grid-template - Rows
+    grid-template - Columns
+    Example:-
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    
+Properties:
+    Same as Flex.
+    Justify-Contend = Move at X Axis
+    align-item  = move at Y Axis
+    justify-item = move in the Shell on X Axis
+    align-item = move in the Shell on Y Axis
+
+
+Transform and Animation : to make our site Alive.
+Transform : to Change Shape, Size, Position, Color and Movement etc.
+It is of 2 Types:-
+
+    1. 2D {X and Y plane} 
+      Examples :-
+        Translate-X : Move on X axis. It will change position of element on X axis.
+        Translate-y : Move on Y axis. Same but on Y axis.
+        Scale(x,y) : to Change Size of Element. {increase and Decrease}
+        Rotate(0deg) : this will rotate Element by given Degree. 
+        Skew(x,y) : this will tilt the Lines. {Lita ne ka kaam h iska}
+
+    2. 3D {X, Y and Z plane}
+        Translate-X : Move on X axis. It will change position of element on X axis.
+        Translate-y : Move on Y axis. Same but on Y axis.
+        Translate-y : Move on Y axis. Same but on Z axis.
+        Scale(x,y,z) : to Change Size of Element. {increase and Decrease}
+        Rotate(0deg,0deg) : this will rotate Element by given Degree. 
+        Skew(x,y,z) : this will tilt the Lines. {Lita ne ka kaam h iska}
+It can be done by 5 things :-
+    1. Transform
+    2. Rotate
+    3. Matrix
+    4. Scale
+    5. Skew
+
+Animation: it is made by using multiple Transformation. 
+    This is the journey from initial state to final state.
+
+
+#                   12nd September 2025
+Forms : 
