@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .balance {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border-radius: 5px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"], button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        /* Toggle button styles */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 30px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+        .toggle-label {
+            font-size: 14px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: white;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Money Manager</h1>
+    <div class="balance">Balance: $<span id="balance">0.00</span></div>
+    
+    <form id="transaction-form">
+        <div class="toggle-container">
+            <span class="toggle-label">Expense</span>
+            <label class="toggle">
+                <input type="checkbox" id="type-toggle">
+                <span class="slider"></span>
+            </label>
+            <span class="toggle-label">Income</span>
+        </div>
+        <input type="text" id="description" placeholder="Description" required>
+        <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+        <button type="submit">Add Transaction</button>
+    </form>
+    
+    <ul id="transaction-list"></ul>
+    
+    <script>
+        const balanceElement = document.getElementById('balance');
+        const form = document.getElementById('transaction-form');
+        const toggle = document.getElementById('type-toggle');
+        const transactionList = document.getElementById('transaction-list');
+        
+        let balance = 0;
+        let transactions = [];
+        
+        function updateBalance() {
+            balanceElement.textContent = balance.toFixed(2);
+        }
+        
+        function renderTransactions() {
+            transactionList.innerHTML = '';
+            transactions.forEach((transaction, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${transaction.description} - $${transaction.amount.toFixed(2)} (${transaction.type})</span>
+                    <button class="delete-btn" onclick="deleteTransaction(${index})">Delete</button>
+                `;
+                transactionList.appendChild(li);
+            });
+        }
+        
+        function deleteTransaction(index) {
+            const transaction = transactions[index];
+            if (transaction.type === 'income') {
+                balance -= transaction.amount;
+            } else {
+                balance += transaction.amount;
+            }
+            transactions.splice(index, 1);
+            updateBalance();
+            renderTransactions();
+        }
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const type = toggle.checked ? 'income' : 'expense';
+            const description = document.getElementById('description').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            
+            if (type === 'income') {
+                balance += amount;
+            } else {
+                balance -= amount;
+            }
+            
+            transactions.push({ type, description, amount });
+            updateBalance();
+            renderTransactions();
+            form.reset();
+            toggle.checked = false; // Reset to default (expense)
+        });
+    </script>
+</body>
+</html>
